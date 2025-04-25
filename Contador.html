@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Desde que estamos juntos 💕</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #f0e6f6, #d8b2ff); /* Lila con gradiente suave */
+      color: #6a4c9c;
+      text-align: center;
+      padding: 20px;
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      animation: fadeIn 1s ease-in-out;
+    }
+    h1 {
+      font-size: 2.5em;
+      color: #8a66d0;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+      animation: slideIn 1s ease-in-out;
+    }
+    #contador {
+      font-size: 1.5em;
+      margin-top: 20px;
+      color: #8a66d0;
+      font-weight: bold;
+      animation: fadeIn 2s ease-in-out;
+    }
+    .mensaje {
+      margin-top: 40px;
+      font-size: 1.3em;
+      font-style: italic;
+      color: #8a66d0;
+      animation: fadeIn 3s ease-in-out;
+    }
+    .foto-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 30px;
+      animation: slideIn 1.5s ease-in-out;
+    }
+    .foto {
+      width: 100%;
+      max-width: 250px; /* Asegura que las imágenes no se expandan demasiado */
+      height: auto; /* Mantiene la relación de aspecto */
+      object-fit: cover;
+      border: 8px solid #8a66d0;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .foto:hover {
+      transform: scale(1.1);
+      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+    }
+    .polaroid {
+      background: white;
+      padding: 15px;
+      width: 100%;
+      display: inline-block;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .polaroid:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Animaciones */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes slideIn {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-10px); }
+      60% { transform: translateY(-5px); }
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2em;
+      }
+      #contador {
+        font-size: 1.3em;
+      }
+      .foto-container {
+        gap: 10px;
+      }
+      .foto {
+        max-width: 100%; /* Se ajustan al 100% del contenedor */
+      }
+      .polaroid {
+        width: 100%;
+      }
+    }
+    @media (max-width: 400px) {
+      h1 {
+        font-size: 1.8em;
+      }
+      #contador {
+        font-size: 1.2em;
+      }
+      .foto {
+        max-width: 100%;
+      }
+      .polaroid {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>💖 Desde que estamos juntitos 💖</h1>
+  <!-- Contenedor de imágenes tipo Polaroid -->
+  <div class="foto-container">
+    <div class="polaroid"><img src="IMG_3661.JPG" alt="Foto 1" class="foto" /></div>
+    <div class="polaroid"><img src="WhatsApp Image 2025-04-25 at 1.55.46 AM.jpeg" alt="Foto 2" class="foto" /></div>
+    <div class="polaroid"><img src="WhatsApp Image 2025-04-25 at 1.56.46 AM.jpeg" alt="Foto 3" class="foto" /></div>
+    <div class="polaroid"><img src="WhatsApp Image 2025-04-25 at 2.06.01 AM.jpeg" alt="Foto 4" class="foto" /></div>
+  </div>
+  <div id="contador"></div>
+  <div class="mensaje">Mi lugar favorito siempre será a tu lado. Contigo aprendí que existen nuevas y mejores emociones. No me imagino mis días sin ti. 💞</div>
+
+  <script>
+    const inicio = new Date("2025-02-25T19:10:00"); // Fecha y hora de inicio
+    const contador = document.getElementById("contador");
+
+    function actualizarContador() {
+      const ahora = new Date();
+      const diff = ahora - inicio;
+
+      const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const horas = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutos = Math.floor((diff / (1000 * 60)) % 60);
+      const segundos = Math.floor((diff / 1000) % 60);
+
+      contador.innerHTML = `${dias} días, ${horas} horas, ${minutos} minutos y ${segundos} segundos 💖`;
+    }
+
+    setInterval(actualizarContador, 1000);
+    actualizarContador();
+  </script>
+</body>
+</html>
+
+
